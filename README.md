@@ -1,70 +1,19 @@
-# Getting Started with Create React App
+# MYCOMPUTER-FRONT-SIDE
+> This  is the Front Side repository of Mycomputer Service.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## What is Mycomputer Service ?
+> 당신이 원하는 사양의 컴퓨터를 전공자가 아니여도 쉽게 알아볼 수 있고, 비교 해볼 수 있습니다.<br/><br/>
+You can easily recognize and compare the specifications of the computer you want even if you are not a major.
 
-## Available Scripts
+## Why Mycomputer Service ? 
+> 수많은 사이트에서 컴퓨터와 부품을 판매하지만, 정작 제품에 대한 설명은 비전공자에게 부실하거나 너무 어렵습니다.<br/><br/>
+Many sites sell computers and parts, but the description of the product is poor or too difficult for non-major.
 
-In the project directory, you can run:
+## How can I know the computer I want ?
+> 다양하고 상세한, 그러나 복잡하지 않고 지루하지 않은 설문조사를 통해 당신에게 알맞은 컴퓨터와 노트북, 부품들을 알려드립니다.<br/><br/>
+Through a variety of detailed, but not-so-complex, non-boring surveys, we'll let you know the right computers, laptops, and parts for you.
 
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Want to know more about this project !
+> 해당 레포지토리는 Server Side 서비스의 포트폴리오 용 Front Side 프로젝트입니다. 자세한 내용은 Server Side 포트폴리오에 기재되어 있으며, 채용 담당자에게만 공개합니다.<br/><br/>
+This repository is a Front Side project for the portfolio of Server Side services. Details are available in the Server Side portfolio and are open to recruiters only.<br/><br/>
+Contact : jswcyber@naver.com
