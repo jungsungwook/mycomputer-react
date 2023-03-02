@@ -1,7 +1,7 @@
 # MYCOMPUTER-FRONT-SIDE
 > This  is the Front Side repository of Mycomputer Service.
 
-## Architecture
+## Service Architecture
 ![mycomputer_Architecture](https://user-images.githubusercontent.com/20926860/222380261-a3871c31-80bd-458f-ad3c-270942ea0586.png)
 
 ## What is Mycomputer Service ?
