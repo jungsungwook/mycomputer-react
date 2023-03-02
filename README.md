@@ -1,6 +1,9 @@
 # MYCOMPUTER-FRONT-SIDE
 > This  is the Front Side repository of Mycomputer Service.
 
+## Architecture
+![mycomputer_Architecture](https://user-images.githubusercontent.com/20926860/222380261-a3871c31-80bd-458f-ad3c-270942ea0586.png)
+
 ## What is Mycomputer Service ?
 당신이 원하는 사양의 컴퓨터를 전공자가 아니여도 쉽게 알아볼 수 있고, 비교 해볼 수 있습니다.<br/><br/>
 >You can easily recognize and compare the specifications of the computer you want even if you are not a major.
