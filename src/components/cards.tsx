@@ -15,20 +15,20 @@ const Card = ({
         <div className="card-wrapper" onClick={() => {
             rotuer.push(`/board/${board_id}`)
         }}>
-          <div className="card-body-img">
-            <img src={img_url}/>
-          </div>
-          <div className="card-body-text">
-            <div className="card-body-text-title">{title}</div>
-            <div className="card-body-text-content">{content}</div>
-          </div>
-    
-          <div className="card-footer">
+            <div className="card-body-img">
+                <img src={img_url}/>
+            </div>
+            <div className="card-body-text">
+                <div className="card-body-text-title">{title}</div>
+                <div className="card-body-text-content">{content}</div>
+            </div>
+
+            <div className="card-footer">
             <div className="username">{user_id}</div>
             <div className="date">{created_at}</div>
-          </div>
         </div>
-      );
+    </div>
+    );
 };
 
 export default Card;
