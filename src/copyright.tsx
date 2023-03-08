@@ -6,7 +6,7 @@ const Copyright = (props: any) => {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
       {'Copyright © '}
-      <MuiLink color="inherit" href="https://naver.com/">
+      <MuiLink color="inherit" href="/">
         MyComputer
       </MuiLink>{' '}
       {new Date().getFullYear()}.
