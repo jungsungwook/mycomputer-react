@@ -12,17 +12,40 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import axios, { Method } from 'axios';
+import Router from 'next/router';
 
 const theme = createTheme();
 
 const SignUp = () => {
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
+
+    const res = await axios({
+      method: 'post' as Method,
+      url: `/api/auth/signup`,
+      data: {
+        customId: data.get('customId'),
+        name: data.get('userName'),
+        email: data.get('email'),
+        password: data.get('password'),
+      },
     });
+    const result = res.data;
+    if(result.statusCode != 200 || result.statusCode != '200'){
+      if(result.contents == 'Id already exists'){
+        alert('이미 존재하는 아이디입니다.');
+      }else if(result.contents == 'Email already exists'){
+        alert('이미 존재하는 이메일입니다.');
+      }else{
+        alert(result.contents);
+      }
+      return;
+    }
+    alert('회원가입이 완료되었습니다.');
+    
+    Router.push('/auth/signin');
   };
 
   return (
@@ -47,12 +70,12 @@ const SignUp = () => {
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
                 <TextField
-                  autoComplete="given-name"
-                  name="firstName"
+                  autoComplete="given-id"
+                  name="customId"
                   required
                   fullWidth
-                  id="firstName"
-                  label="First Name"
+                  id="customId"
+                  label="Id"
                   autoFocus
                 />
               </Grid>
@@ -60,10 +83,11 @@ const SignUp = () => {
                 <TextField
                   required
                   fullWidth
-                  id="lastName"
-                  label="Last Name"
-                  name="lastName"
-                  autoComplete="family-name"
+                  name="password"
+                  label="Password"
+                  type="password"
+                  id="password"
+                  autoComplete="new-password"
                 />
               </Grid>
               <Grid item xs={12}>
@@ -80,11 +104,10 @@ const SignUp = () => {
                 <TextField
                   required
                   fullWidth
-                  name="password"
-                  label="Password"
-                  type="password"
-                  id="password"
-                  autoComplete="new-password"
+                  name="userName"
+                  label="Name"
+                  id="userName"
+                  autoComplete="new-Name"
                 />
               </Grid>
               <Grid item xs={12}>

@@ -12,18 +12,33 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import axios, { Method } from 'axios';
+import Router from 'next/router';
+import { getCookie, hasCookie, setCookie } from 'cookies-next';
 
 const theme = createTheme();
 
 const SignIn = () => {
   try{
-    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
       event.preventDefault();
       const data = new FormData(event.currentTarget);
-      console.log({
-        email: data.get('email'),
-        password: data.get('password'),
+      
+      const res = await axios({
+        method: 'post' as Method,
+        url: `/api/auth/signin`,
+        data: {
+          customId: data.get('customId'),
+          password: data.get('password'),
+        },
       });
+      const result = res.data;
+      localStorage.setItem('accessToken', result.contents);
+      if(result.statusCode != 200 || result.statusCode != '200'){
+        alert(result.contents);
+        return;
+      }
+      Router.push('/');
     };
   
     return (
@@ -49,10 +64,10 @@ const SignIn = () => {
                 margin="normal"
                 required
                 fullWidth
-                id="email"
-                label="Email Address"
-                name="email"
-                autoComplete="email"
+                id="customId"
+                label="Id"
+                name="customId"
+                autoComplete="customId"
                 autoFocus
               />
               <TextField
