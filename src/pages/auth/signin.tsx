@@ -38,6 +38,7 @@ const SignIn = () => {
         alert(result.contents);
         return;
       }
+      localStorage.setItem('isLogin', 'true')
       Router.push('/');
     };
   

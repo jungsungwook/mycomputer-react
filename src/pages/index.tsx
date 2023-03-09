@@ -7,19 +7,32 @@ import Link from 'next/link'
 const Home = () => {
   return (
     <>
-      <div style={
-        {
-          float: 'right',
-          margin: '10px',
-        }
-      }>
-        <Link href={'/auth/signin'}>
-          | Login |
-        </Link>
-        <Link href={'/auth/signup'}>
-          | Register |
-        </Link>
-      </div>
+      {
+        typeof window !== 'undefined' && localStorage.getItem('isLogin') == 'true'
+        ? 
+          <div style={
+            {
+              float: 'right',
+              margin: '10px',
+            }
+          }>
+            | Logout |
+          </div>
+        : 
+          <div style={
+            {
+              float: 'right',
+              margin: '10px',
+            }
+          }>
+            <Link href={'/auth/signin'}>
+              | Login |
+            </Link>
+            <Link href={'/auth/signup'}>
+              | Register |
+            </Link>
+          </div>
+      }
       <div style={
         {
           margin: '10px',
