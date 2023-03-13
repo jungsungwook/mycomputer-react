@@ -56,6 +56,18 @@ const Home = () => {
 
   return (
     <>
+    <div className="write-btn-fixed">
+      {
+        isLogin == 'true'?
+        <Link href={'/board/write'}>
+          글쓰기
+        </Link>
+        :
+        <Link href={'/auth/signin'}>
+          글쓰기
+        </Link>
+      }
+    </div>
       <div id="menu-bar" className='fixedBox'>
         {
           isLogin == 'true'

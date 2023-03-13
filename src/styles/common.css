@@ -16,6 +16,19 @@
     padding: 10px;
 }
 
+.write-btn-fixed {
+    position: fixed; 
+    bottom: 50px; 
+    right: 20px;
+    z-index: 1;
+    padding: 10px; 
+    background: lightseagreen; 
+    border-radius: 6px;
+    color: #fff;
+    border: 1px solid rgb(23, 122, 117);
+    text-align: left;
+}
+
 body {
     padding-top: 50px;
     /* 생략 */
