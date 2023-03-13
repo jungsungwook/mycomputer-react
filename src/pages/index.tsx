@@ -5,13 +5,15 @@ import Card from '@/components/cards'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import axios, { Method } from 'axios'
+import { timeConvert, timezoneConvert } from '@/utils/timezoneConvet'
 
 const Home = () => {
   const [isLogin, setIsLogin] = useState('false');
   const [boards, setBoards] = useState([]);
+  const [user, setUser] = useState(Object);
 
   useEffect(() => {
-    setIsLogin(localStorage.getItem('isLogin') == "true" ? 'true' : 'false');
+    // setIsLogin(localStorage.getItem('isLogin') == "true" ? 'true' : 'false');
     
     const isLogin = axios({
       method: 'get' as Method,
@@ -22,11 +24,18 @@ const Home = () => {
     }).then((res) => {
       const result = res.data;
       if(result.statusCode == 200 || result.statusCode == '200'){
+        setUser({
+          id: result.contents.id,
+          email: result.contents.email,
+          name: result.contents.name,
+          customId: result.contents.customId,
+        });
         localStorage.setItem('isLogin', 'true');
         setIsLogin('true');
       }else{
         localStorage.setItem('isLogin', 'false');
         setIsLogin('false');
+        setUser({});
       }
     }).catch((err) => {
     });
@@ -56,8 +65,14 @@ const Home = () => {
               float: 'right',
               margin: '0 10px 0 0'
             }
-          }>
-            <p style={{cursor : 'pointer'}} onClick={
+          }><div>
+            <p style={
+              {
+                float: 'left',
+                margin: '0 10px 0 0'
+              }
+            }>{user.name}님 환영합니다.</p>
+            <p style={{cursor : 'pointer', float : 'left'}} onClick={
               () => {
                 const res = axios({
                   method: 'get' as Method,
@@ -66,22 +81,18 @@ const Home = () => {
                   },
                   url: `/api/auth/signout`,
                 }).then((res) => {
-                  const result = res.data;
-                  if(result.statusCode == 200 || result.statusCode == '200'){
-                    localStorage.removeItem('isLogin');
-                    localStorage.removeItem('accessToken');
-                    setIsLogin('false');
-                  }
                 }).catch((err) => {
                 }).finally(() => {
                   localStorage.removeItem('isLogin');
                   localStorage.removeItem('accessToken');
+                  setUser({});
                   setIsLogin('false');
                 });
               }
             }>
             | Logout |
             </p>
+            </div>
           </div>
         : 
           <div style={
@@ -124,8 +135,8 @@ const Home = () => {
                 board_id={item.id}
                 title={item.title}
                 content={item.content}
-                img_url="https://images.mypetlife.co.kr/content/uploads/2018/07/09155938/23098550_1717292138292321_9032508045317373952_n.jpg"
-                created_at={item.createdAt}
+                // img_url="https://images.mypetlife.co.kr/content/uploads/2018/07/09155938/23098550_1717292138292321_9032508045317373952_n.jpg"
+                created_at={timeConvert(item.createdAt)}
                 updated_at={item.updatedAt}
                 user_id={item.createdById}
               />

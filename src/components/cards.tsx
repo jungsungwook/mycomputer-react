@@ -15,9 +15,12 @@ const Card = ({
         <div className="card-wrapper" onClick={() => {
             rotuer.push(`/board/${board_id}`)
         }}>
-            <div className="card-body-img">
-                <img src={img_url}/>
-            </div>
+            {
+                img_url != null && img_url != "" && img_url != "null" && img_url != "undefined" && img_url != undefined ?
+                <div className="card-body-img">
+                    <img src={img_url}/>
+                </div> : <></>
+            }
             <div className="card-body-text">
                 <div className="card-body-text-title">{title}</div>
                 <div className="card-body-text-content">{content}</div>
