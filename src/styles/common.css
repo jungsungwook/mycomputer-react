@@ -2,3 +2,21 @@
     color: #0000FF;
     text-decoration: underline;
 }
+
+.fixedBox {
+    position: fixed;
+    width: 100%; 
+    top: 0; 
+    right: 0;
+    font-size: 22px;
+    border-radius: 0;
+    background: rgba(100, 100, 100, 0.5);
+    border-radius: 3px;
+    color: #fff;
+    padding: 10px;
+}
+
+body {
+    padding-top: 40px;
+    /* 생략 */
+}
