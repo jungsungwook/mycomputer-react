@@ -6,40 +6,14 @@ import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import axios, { Method } from 'axios'
 import { timeConvert, timezoneConvert } from '@/utils/timezoneConvet'
+import { useRecoilState } from 'recoil'
+import { isLoginState } from '@/states/is-login'
 
 const Home = () => {
-  const [isLogin, setIsLogin] = useState('false');
   const [boards, setBoards] = useState([]);
-  const [user, setUser] = useState(Object);
+  const [isLogin, setIsLoginState] = useRecoilState(isLoginState);
 
   useEffect(() => {
-    // setIsLogin(localStorage.getItem('isLogin') == "true" ? 'true' : 'false');
-
-    const isLogin = axios({
-      method: 'get' as Method,
-      headers: {
-        Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
-      },
-      url: `/api/auth/islogin`,
-    }).then((res) => {
-      const result = res.data;
-      if (result.statusCode == 200 || result.statusCode == '200') {
-        setUser({
-          id: result.contents.id,
-          email: result.contents.email,
-          name: result.contents.name,
-          customId: result.contents.customId,
-        });
-        localStorage.setItem('isLogin', 'true');
-        setIsLogin('true');
-      } else {
-        localStorage.setItem('isLogin', 'false');
-        setIsLogin('false');
-        setUser({});
-      }
-    }).catch((err) => {
-    });
-
     const res = axios({
       method: 'get' as Method,
       headers: {
@@ -58,7 +32,7 @@ const Home = () => {
     <>
     <div className="write-btn-fixed">
       {
-        isLogin == 'true'?
+        isLogin == true?
         <Link href={'/board/write'}>
           글쓰기
         </Link>
@@ -68,70 +42,6 @@ const Home = () => {
         </Link>
       }
     </div>
-      <div id="menu-bar" className='fixedBox'>
-        {
-          isLogin == 'true'
-            ?
-            <div style={
-              {
-                float: 'right',
-                margin: '0 10px 0 0'
-              }
-            }><div>
-                <p style={
-                  {
-                    float: 'left',
-                    margin: '0 10px 0 0'
-                  }
-                }>{user.name}님 환영합니다.</p>
-                <p style={{ cursor: 'pointer', float: 'left' }} onClick={
-                  () => {
-                    const res = axios({
-                      method: 'get' as Method,
-                      headers: {
-                        Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
-                      },
-                      url: `/api/auth/signout`,
-                    }).then((res) => {
-                    }).catch((err) => {
-                    }).finally(() => {
-                      localStorage.removeItem('isLogin');
-                      localStorage.removeItem('accessToken');
-                      setUser({});
-                      setIsLogin('false');
-                    });
-                  }
-                }>
-                  | Logout |
-                </p>
-              </div>
-            </div>
-            :
-            <div style={
-              {
-                float: 'right',
-              }
-            }>
-              <Link href={'/auth/signin'}>
-                | Login |
-              </Link>
-              <Link href={'/auth/signup'}>
-                | Register |
-              </Link>
-            </div>
-        }
-        <div>
-          <Link href={'/'}>
-            | 홈 화면 |
-          </Link>
-          <Link href={'/board'}>
-            | 게시판 |
-          </Link>
-          <Link href={'/survey'}>
-            | 설문조사 |
-          </Link>
-        </div>
-      </div>
       <div id='div-boards' style={
         {
           margin: '10px',
