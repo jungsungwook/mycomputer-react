@@ -4,8 +4,6 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 
 const BoardWrite = () => {
-    const [user, setUser] = useState(Object);
-    const [isLogin, setIsLogin] = useState('false');
     return (
         <>
             <div>

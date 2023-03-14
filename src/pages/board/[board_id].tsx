@@ -35,6 +35,9 @@ const Board = () => {
                 <h1>{board.title}</h1>
                 <h2>{board.content}</h2>
             </div>
+            {
+                board.isMine ? <div>내꺼</div>: <div>내꺼아님</div>
+            }
         </>
     );
 }
