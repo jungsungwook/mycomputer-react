@@ -8,6 +8,7 @@ import axios, { Method } from 'axios'
 import { timeConvert, timezoneConvert } from '@/utils/timezoneConvet'
 import { useRecoilState } from 'recoil'
 import { isLoginState } from '@/states/is-login'
+import Header from '@/header'
 
 const Home = () => {
   const [boards, setBoards] = useState([]);
@@ -30,42 +31,7 @@ const Home = () => {
 
   return (
     <>
-    <div className="write-btn-fixed">
-      {
-        isLogin == true?
-        <Link href={'/board/write'}>
-          글쓰기
-        </Link>
-        :
-        <Link href={'/auth/signin'}>
-          글쓰기
-        </Link>
-      }
-    </div>
-      <div id='div-boards' style={
-        {
-          margin: '10px',
-          display: 'flex',
-          flexWrap: 'wrap',
-        }
-      }>
-        {
-          boards.map((item: any, index) => {
-            return (
-              <Card
-                key={index}
-                board_id={item.id}
-                title={item.title}
-                content={item.content}
-                // img_url="https://images.mypetlife.co.kr/content/uploads/2018/07/09155938/23098550_1717292138292321_9032508045317373952_n.jpg"
-                created_at={timeConvert(item.createdAt)}
-                updated_at={item.updatedAt}
-                user_id={item.createdById}
-              />
-            )
-          })
-        }
-      </div>
+      <Header />
     </>
   )
 }

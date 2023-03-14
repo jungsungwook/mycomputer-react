@@ -5,11 +5,15 @@ import { useEffect, useState } from "react";
 import { useRecoilState  } from "recoil";
 import { currentPathState } from "@/states/current-path";
 import { isLoginState } from "./states/is-login";
+import { useRouter } from "next/router";
 
 const Header = () => {
+    const router = useRouter();
     const [isLogin, setIsLoginState] = useRecoilState(isLoginState);
     const [user, setUser] = useState(Object);
     const [currentPath, setCurrentPathState] = useRecoilState(currentPathState);
+
+    setCurrentPathState(router.pathname);
 
     useEffect(() => {
         const isLogin = axios({
@@ -35,8 +39,11 @@ const Header = () => {
                 setUser({});
             }
         }).catch((err) => {
+            localStorage.setItem('isLogin', 'false');
+            setIsLoginState(false);
+            setUser({});
         });
-    }, []);
+    }, [currentPath]);
 
         return (
             <>

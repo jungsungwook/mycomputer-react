@@ -11,7 +11,6 @@ const Document = () => {
       <Head />
       <body>
         <RecoilRoot>
-          <Header />
           <Main />
           <Copyright sx={{ mt: 5 }} />
           <NextScript />
