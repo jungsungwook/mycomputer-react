@@ -8,7 +8,7 @@ import axios, { Method } from 'axios'
 import { timeConvert, timezoneConvert } from '@/utils/timezoneConvet'
 import { useRecoilState } from 'recoil'
 import { isLoginState } from '@/states/is-login'
-import Header from '@/header'
+import Header from '@/components/header'
 
 const Home = () => {
   const [boards, setBoards] = useState([]);
@@ -31,7 +31,6 @@ const Home = () => {
 
   return (
     <>
-      <Header />
     </>
   )
 }

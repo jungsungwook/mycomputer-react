@@ -1,5 +1,5 @@
 import Card from "@/components/cards";
-import Header from "@/header";
+import Header from "@/components/header";
 import { isLoginState } from "@/states/is-login";
 import { timeConvert } from "@/utils/timezoneConvet";
 import axios, { Method } from "axios";
@@ -29,7 +29,6 @@ const BoardIndex = () => {
 
     return (
         <>
-            <Header />
             <div className="write-btn-fixed">
                 {
                     isLogin == true ?

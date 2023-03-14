@@ -1,5 +1,5 @@
 import Copyright from '@/copyright'
-import Header from '@/header'
+import Header from '@/components/header'
 import { Html, Head, Main, NextScript } from 'next/document'
 import { RecoilRoot } from 'recoil'
 
