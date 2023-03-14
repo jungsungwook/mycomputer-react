@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useRecoilState  } from "recoil";
 import { currentPathState } from "@/states/current-path";
-import { isLoginState } from "./states/is-login";
+import { isLoginState } from "../states/is-login";
 import { useRouter } from "next/router";
 
 const Header = () => {
