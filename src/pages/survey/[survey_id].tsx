@@ -26,7 +26,7 @@ const Survey = () => {
         if(!isEmptyObject(surveyResultInfo)){
             const question = document.querySelector('.survey-question') as HTMLElement;
             const answers = document.querySelector('.survey-answers') as HTMLElement;
-            question.innerHTML = surveyResultInfo[currentId].survey.question;
+            question.innerHTML = `<h1>${surveyResultInfo[currentId].survey.question}</h1>`;
             answers.innerHTML = '';
             surveyResultInfo[currentId].answers.forEach((element:any) => {
                 const answer = document.createElement('div');
@@ -35,6 +35,7 @@ const Survey = () => {
                     <input type="radio" name="answer" id="answer${element.id}" value="${element.id}" />
                     <label htmlFor="answer${element.id}">${element.answerText}</label>
                 `;
+                answer.style.padding = '3px';
                 answers.appendChild(answer);
             });
         }
@@ -73,12 +74,18 @@ const Survey = () => {
             </div>
             <div style={{display: 'flex', flexDirection: "column",justifyContent: 'center', alignItems: 'center'}}>
                 <div>
-                    {currentId+1}/{surveyGroupItems.length}
+                    {
+                        surveyGroupItems.map((element:any, index:number) => {
+                            return (
+                                <span key={index} style={{padding: 5, color: currentId == index? "black" : "white"}}>●</span>
+                            )
+                        })
+                    }
                 </div>
-                <div className="survey-question">
+                <div className="survey-question" style={{padding: 5}}>
                     질문
                 </div>
-                <div className="survey-answers">
+                <div className="survey-answers" style={{display: 'flex', flexDirection:"column", padding: 5}}>
                     <div className="survey-answer">
                         <input type="radio" name="answer" id="answer1" value="1" />
                         <label htmlFor="answer1">대답1</label>
