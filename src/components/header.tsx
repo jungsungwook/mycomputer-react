@@ -7,6 +7,10 @@ import { currentPathState } from "@/states/current-path";
 import { isLoginState } from "../states/is-login";
 import { useRouter } from "next/router";
 
+// @ todo
+// https://velog.io/@dishate/axios-interceptor%EB%A1%9C-401-%EC%B2%98%EB%A6%AC%ED%95%98%EA%B8%B0
+// axios 인터셉트를 통해 401 에러를 상세하게 처리하며 브라우저 콘솔에 에러 출력을 막는다.
+
 const Header = () => {
     const router = useRouter();
     const [isLogin, setIsLoginState] = useRecoilState(isLoginState);
@@ -40,7 +44,7 @@ const Header = () => {
                 setIsLoginState(false);
                 setUser({});
             }
-        }).catch((err) => {
+        }).catch((res) => {
             localStorage.setItem('isLogin', 'false');
             setIsLoginState(false);
             setUser({});
