@@ -2,7 +2,8 @@ import { useRouter } from 'next/router';
 import React from 'react';
 
 const Card = ({
-    board_id,
+    card_type,
+    item_id,
     title,
     content,
     img_url,
@@ -13,7 +14,7 @@ const Card = ({
     const rotuer = useRouter();
     return (
         <div className="card-wrapper" onClick={() => {
-            rotuer.push(`/board/${board_id}`)
+            rotuer.push(`/${card_type}/${item_id}`)
         }}>
             {
                 img_url != null && img_url != "" && img_url != "null" && img_url != "undefined" && img_url != undefined ?

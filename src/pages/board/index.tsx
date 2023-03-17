@@ -53,7 +53,8 @@ const BoardIndex = () => {
                         return (
                             <Card
                                 key={index}
-                                board_id={item.id}
+                                card_type="board"
+                                item_id={item.id}
                                 title={item.title}
                                 content={item.content}
                                 // img_url="https://images.mypetlife.co.kr/content/uploads/2018/07/09155938/23098550_1717292138292321_9032508045317373952_n.jpg"
