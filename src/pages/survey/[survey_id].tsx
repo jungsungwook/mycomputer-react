@@ -24,6 +24,15 @@ const Survey = () => {
 
     useEffect(() => {
         if(!isEmptyObject(surveyResultInfo)){
+            const process = document.querySelector('.survey-process') as HTMLElement;
+            process.innerHTML = '';
+            surveyGroupItems.forEach((element:any, index:number) => {
+                const span = document.createElement('span');
+                span.style.padding = '5px';
+                span.style.color = currentId == index? "black" : "white";
+                span.innerHTML = '●';
+                process.appendChild(span);
+            });
             const question = document.querySelector('.survey-question') as HTMLElement;
             const answers = document.querySelector('.survey-answers') as HTMLElement;
             question.innerHTML = `<h1>${surveyResultInfo[currentId].survey.question}</h1>`;
@@ -73,14 +82,7 @@ const Survey = () => {
                 <h2>{surveyGroupRole.description}</h2>
             </div>
             <div style={{display: 'flex', flexDirection: "column",justifyContent: 'center', alignItems: 'center'}}>
-                <div>
-                    {
-                        surveyGroupItems.map((element:any, index:number) => {
-                            return (
-                                <span key={index} style={{padding: 5, color: currentId == index? "black" : "white"}}>●</span>
-                            )
-                        })
-                    }
+                <div className="survey-process">
                 </div>
                 <div className="survey-question" style={{padding: 5}}>
                     질문
