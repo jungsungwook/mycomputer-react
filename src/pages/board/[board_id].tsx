@@ -1,14 +1,16 @@
+import { isLoginState } from "@/states/is-login";
 import axios, { Method } from "axios";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import { useRecoilState } from "recoil";
 
 const Board = () => {
     const router = useRouter();
     const { board_id } = router.query;
     const [board, setBoard] = useState(Object);
     const [user, setUser] = useState(Object);
-    const [isLogin, setIsLogin] = useState('false');
+    const [isLogin, setIsLoginState] = useRecoilState(isLoginState);
 
     useEffect(() => {
         const res = axios({
