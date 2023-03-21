@@ -11,7 +11,6 @@ import { isLoginState } from '@/states/is-login'
 import Header from '@/components/header'
 
 const Home = () => {
-  const [boards, setBoards] = useState([]);
   const [isLogin, setIsLoginState] = useRecoilState(isLoginState);
 
   useEffect(() => {
@@ -24,7 +23,7 @@ const Home = () => {
     }).then((res) => {
       const result = res.data;
       if (result.statusCode == 200 || result.statusCode == '200') {
-        setBoards(result.contents);
+
       }
     });
   }, []);

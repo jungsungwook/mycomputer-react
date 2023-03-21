@@ -85,6 +85,31 @@ body {
   overflow-x: hidden;
 }
 
+.survey-button {
+  /* display: block; */
+  margin: 0 auto;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  background: rgb(var(--tile-start-rgb));
+  background: linear-gradient(
+    to bottom right,
+    rgb(var(--tile-start-rgb)),
+    rgb(var(--tile-end-rgb))
+  );
+  border: 1px solid rgb(var(--tile-border-rgb));
+  box-shadow: 0 0 0 1px rgb(var(--tile-border-rgb));
+  color: rgb(var(--foreground-rgb));
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: all 0.2s ease-in-out;
+}
+
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(

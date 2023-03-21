@@ -94,8 +94,12 @@ const Survey = () => {
                     </div>
                 </div>
                 <div className="btn-group" style={{flexDirection: "row", padding: 10}}>
-                    <button onClick={() => nextSurvey(false)}>이전</button>
-                    <button onClick={() => nextSurvey(true)}>다음</button>
+                    {
+                        currentId == 0? <></> : <button className="survey-button" onClick={() => nextSurvey(false)}>이전</button>
+                    }
+                    {
+                        currentId == surveyGroupItems.length - 1? <></> : <button className="survey-button" onClick={() => nextSurvey(true)}>다음</button>
+                    }
                 </div>
             </div>
         </>
